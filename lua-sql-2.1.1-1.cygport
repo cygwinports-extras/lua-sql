@@ -1,0 +1,47 @@
+inherit lua
+
+DESCRIPTION="Lua database connectivity package"
+HOMEPAGE="http://www.keplerproject.org/luasql/"
+SRC_URI="http://luaforge.net/frs/download.php/2686/${PN/-}.${PV}.tar.gz"
+SRC_DIR="${PN/-}-${PV}"
+
+PKG_NAMES="${PN}"
+PKG_HINTS="setup"
+PKG_CONTENTS[0]="usr/share/"
+
+drivers="mysql odbc postgres sqlite sqlite3"
+n=1
+
+for drv in ${drivers}
+do
+	PKG_NAMES+=" ${PN}-${drv}"
+	PKG_HINTS+=" ${drv}"
+	PKG_CONTENTS[$((n++))]="${LUA_LIBDIR#/}/luasql/${drv}.dll"
+done
+
+src_compile() {
+	local my_args="DRIVER_INCS=  LUA_INC=${LUA_INCLUDEDIR} LUA_LIBS=${LUA_LIBS}"
+
+	lndirs
+	cd ${B}
+
+	cygmake T=mysql ${my_args} DRIVER_INCS="$(mysql_config --include)" DRIVER_LIBS="$(mysql_config --libs)"
+	cygmake T=odbc ${my_args} DRIVER_LIBS="-lodbc32"
+	cygmake T=postgres ${my_args} DRIVER_LIBS="-Wl,--export-all-symbols -lpq"
+	cygmake T=sqlite ${my_args} DRIVER_LIBS="-lsqlite"
+	cygmake T=sqlite3 ${my_args} DRIVER_LIBS="-lsqlite3"
+}
+
+src_install() {
+	cd ${B}
+	for drv in ${drivers}
+	do
+		cyginstall PREFIX=${D}/usr T=${drv}
+	done
+
+	for lang in br us
+	do
+		docinto html/${lang}
+		dodoc doc/${lang}/*
+	done
+}

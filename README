@@ -1,0 +1,95 @@
+lua-sql
+------------------------------------------
+LuaSQL is a simple interface from Lua to a DBMS. It enables a Lua program to:
+
+* Connect to ODBC, MySQL, SQLite and PostgreSQL databases;
+* Execute arbitrary SQL statements;
+* Retrieve results in a row-by-row cursor fashion.
+
+Runtime requirements:
+  cygwin-1.5.25-7
+  lua-5.1.3-1
+(lua-sql-mysql)
+  libmysqlclient15-5.0.45-1
+(lua-sql-postgres)
+  postgresql-8.0.7-1
+(lua-sql-sqlite)
+  libsqlite0-2.8.17-3
+(lua-sql-sqlite3)
+  libsqlite3_0-3.5.4-1
+
+Build requirements:
+  binutils-20060817-1
+  cygport-0.3.8-1
+  gcc-core-3.4.4-3
+  make-3.81-1
+  w32api-3.10-1
+
+Canonical website:
+  http://www.keplerproject.org/luasql/
+
+Canonical download:
+  http://luaforge.net/projects/luasql/
+
+-------------------------------------------
+
+Build instructions:
+  unpack lua-sql-2.1.1-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./lua-sql-2.1.1-X.cygport all
+
+This will create:
+  /usr/src/lua-sql-2.1.1-X-src.tar.bz2
+  /usr/src/lua-sql-2.1.1-X.tar.bz2
+  /usr/src/lua-sql-mysql-2.1.1-X.tar.bz2
+  /usr/src/lua-sql-odbc-2.1.1-X.tar.bz2
+  /usr/src/lua-sql-postgres-2.1.1-X.tar.bz2
+  /usr/src/lua-sql-sqlite-2.1.1-X.tar.bz2
+  /usr/src/lua-sql-sqlite3-2.1.1-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(lua-sql)
+  /usr/share/doc/lua-sql-2.1.1/README
+  /usr/share/doc/lua-sql-2.1.1/html/br/examples.html
+  /usr/share/doc/lua-sql-2.1.1/html/br/history.html
+  /usr/share/doc/lua-sql-2.1.1/html/br/index.html
+  /usr/share/doc/lua-sql-2.1.1/html/br/license.html
+  /usr/share/doc/lua-sql-2.1.1/html/br/luasql.png
+  /usr/share/doc/lua-sql-2.1.1/html/br/manual.html
+  /usr/share/doc/lua-sql-2.1.1/html/us/examples.html
+  /usr/share/doc/lua-sql-2.1.1/html/us/history.html
+  /usr/share/doc/lua-sql-2.1.1/html/us/index.html
+  /usr/share/doc/lua-sql-2.1.1/html/us/license.html
+  /usr/share/doc/lua-sql-2.1.1/html/us/luasql.png
+  /usr/share/doc/lua-sql-2.1.1/html/us/manual.html
+
+(lua-sql-mysql)
+  /usr/lib/lua/5.1/luasql/mysql.dll
+
+(lua-sql-odbc)
+  /usr/lib/lua/5.1/luasql/odbc.dll
+
+(lua-sql-postgres)
+  /usr/lib/lua/5.1/luasql/postgres.dll
+
+(lua-sql-sqlite)
+  /usr/lib/lua/5.1/luasql/sqlite.dll
+
+(lua-sql-sqlite3)
+  /usr/lib/lua/5.1/luasql/sqlite3.dll
+
+------------------
+
+Port Notes:
+
+----- version 2.1.1-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

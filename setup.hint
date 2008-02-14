@@ -1,0 +1,7 @@
+category: Lua Database
+sdesc: "Lua database connectivity package"
+ldesc: "LuaSQL is a simple interface from Lua to a DBMS. It enables a 
+Lua program to:
+* Connect to ODBC, MySQL, SQLite and PostgreSQL databases;
+* Execute arbitrary SQL statements;
+* Retrieve results in a row-by-row cursor fashion."
