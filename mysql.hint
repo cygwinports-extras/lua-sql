@@ -1,5 +1,5 @@
 category: Lua Database
-requires: cygwin lua libmysqlclient15
+requires: lua libmysqlclient15
 external-source: lua-sql
 sdesc: "Lua database connectivity package (MySQL driver)"
 ldesc: "LuaSQL is a simple interface from Lua to a DBMS. It enables a 

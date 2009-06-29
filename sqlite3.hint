@@ -1,5 +1,5 @@
 category: Lua Database
-requires: cygwin lua libsqlite3_0
+requires: lua libsqlite3_0
 external-source: lua-sql
 sdesc: "Lua database connectivity package (SQLite3 driver)"
 ldesc: "LuaSQL is a simple interface from Lua to a DBMS. It enables a 

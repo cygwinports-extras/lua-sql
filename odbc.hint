@@ -1,5 +1,5 @@
 category: Lua Database
-requires: cygwin lua 
+requires: lua 
 external-source: lua-sql
 sdesc: "Lua database connectivity package (ODBC driver)"
 ldesc: "LuaSQL is a simple interface from Lua to a DBMS. It enables a 
